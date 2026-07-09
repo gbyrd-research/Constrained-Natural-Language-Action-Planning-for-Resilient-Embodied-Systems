@@ -438,6 +438,21 @@ key strengths: flexibility and generalizability to complex realworld environment
 <section class="section">
   <div class="container is-max-desktop">
 
+    <!-- Placeholder Text -->
+    <div class="content mb-6">
+      <h2 class="title is-4">Planning Environments</h2>
+      <p>
+        In the design phase, an engineer specifies
+        planning constraints (i.e., the preconditions and effects of each action) through a
+        PDDL environment domain. The engineer then creates an LLM planning prompt that
+        provides natural language descriptions of the available actions. During execution,
+        SCLPlan first uses an LLM to produce a PDDL goal state that is passed to a symbolic
+        planner, then sequentially plans toward the goal while leveraging both symbolic and
+        LLM planning components where appropriate. A description of the design approach can
+        be seen in Figure 1 below.
+      </p>
+    </div>
+
     <!-- Figure 1 -->
     <div class="content has-text-centered mb-6">
       <img src="static/images/Figure 1.png"
@@ -445,13 +460,18 @@ key strengths: flexibility and generalizability to complex realworld environment
            loading="lazy"
            style="max-width:100%; height:auto;">
       <p class="subtitle mt-3">
-        <strong>Figure 1.</strong> SCLPlan Overview — In the design phase, an engineer specifies
-        planning constraints (i.e., the preconditions and effects of each action) through a
-        PDDL environment domain. The engineer then creates an LLM planning prompt that
-        provides natural language descriptions of the available actions. During execution,
-        SCLPlan first uses an LLM to produce a PDDL goal state that is passed to a symbolic
-        planner, then sequentially plans toward the goal while leveraging both symbolic and
-        LLM planning components where appropriate.
+        <strong>Figure 1.</strong> SCLPlan Overview
+      </p>
+    </div>
+
+    <!-- Placeholder Text -->
+    <div class="content mb-6">
+      <h2 class="title is-4">Planning Environments</h2>
+      <p>
+        We evaluate SCLPlan on a variety of environments that differ in complexity. These environments
+        range from simulation environments like ALFWorld and AI2Thor to multiple different real world environments
+        and scenes. The simulation environments were chosen to provide strong, repeatable baselines and the real world
+        environments were chosen to demonstrate true performance.
       </p>
     </div>
 
@@ -462,7 +482,38 @@ key strengths: flexibility and generalizability to complex realworld environment
            loading="lazy"
            style="max-width:100%; height:auto;">
       <p class="subtitle mt-3">
-        <strong>Figure 2.</strong> We evaluate SCLPlan on a variety of environments that differ in complexity.
+        <strong>Figure 2.</strong> Evaluation Environments
+      </p>
+    </div>
+
+    <!-- Placeholder Text -->
+    <div class="content mb-6">
+      <h2 class="title is-4">Experimental Results In Simulation</h2>
+      <p>
+        In Figure 3, we provide data for three different approaches:
+        1. ReAct 21 - a pure LLM approach, 2. ReAct
+        + P V - a
+        pure LLM whose next action predictions are first verified or
+        corrected with our formal method Precondition Verification,
+        and 3. SCLPlan - our full AI planner, which includes
+        Precondition Verification as well as a Global Symbolic Planner
+        (GSP) that constantly searches for a global solution to the
+        planning task at each next action prediction. We evaluate each
+        approach using Task Success percentage, total Token Count,
+        and number of Environment Steps required to complete each
+        task as our experimental metrics.
+        Figure 3 clearly demonstrates the benefits of each formal
+        method augmentation on the ALFWorld validation task set. 
+        Across every LLM, regardless of size and competency, the
+        introduction of Precondition Verification and then Global Formal 
+        Planning significantly improved the overall Task Success
+        rate of the pipeline. This pattern generally extends to both
+        Token Count and Environment Steps, with a notable exception
+        for the formulation of the planner using Llama 70B as its
+        language backbone, which experienced a slight degradation
+        of performance on the Token Count and Environment Steps
+        metrics when using ReAct
+        + P V alone.
       </p>
     </div>
 
@@ -477,6 +528,62 @@ key strengths: flexibility and generalizability to complex realworld environment
       </p>
     </div>
 
+        <!-- Placeholder Text -->
+    <div class="content mb-6">
+      <h2 class="title is-4">Experimental Results In Simulation</h2>
+      <p>
+        In Figure 3, we provide data for three different approaches:
+        1. ReAct 21 - a pure LLM approach, 2. ReAct
+        + P V - a
+        pure LLM whose next action predictions are first verified or
+        corrected with our formal method Precondition Verification,
+        and 3. SCLPlan - our full AI planner, which includes
+        Precondition Verification as well as a Global Symbolic Planner
+        (GSP) that constantly searches for a global solution to the
+        planning task at each next action prediction. We evaluate each
+        approach using Task Success percentage, total Token Count,
+        and number of Environment Steps required to complete each
+        task as our experimental metrics.
+        Figure 3 clearly demonstrates the benefits of each formal
+        method augmentation on the ALFWorld validation task set. 
+        Across every LLM, regardless of size and competency, the
+        introduction of Precondition Verification and then Global Formal 
+        Planning significantly improved the overall Task Success
+        rate of the pipeline. This pattern generally extends to both
+        Token Count and Environment Steps, with a notable exception
+        for the formulation of the planner using Llama 70B as its
+        language backbone, which experienced a slight degradation
+        of performance on the Token Count and Environment Steps
+        metrics when using ReAct
+        + P V alone.
+      </p>
+    </div>
+
+    <!-- Consistency Table -->
+    <div class="content has-text-centered mb-6">
+      <img src="static/images/consistency_table.png"
+           alt="Planning Performance"
+           loading="lazy"
+           style="max-width:100%; height:auto;">
+      <p class="subtitle mt-3">
+        <strong>Table 1.</strong> Ablation study using repeatability metrics. 
+        The values presented represent the mean and standard deviation of each 
+        metric across 10 runs of the same task, averaged across 10 different tasks. 
+        The lowest standard deviation for each model is bolded.
+      </p>
+    </div>
+
+    <!-- Placeholder Text -->
+    <div class="content mb-6">
+      <h2 class="title is-4">Robustness and Recovery</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat
+        ullamcorper magna, sed porttitor justo suscipit eget. Integer eget tincidunt
+        ipsum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
+        cubilia curae.
+      </p>
+    </div>
+
     <!-- Figure 5 -->
     <div class="content has-text-centered mb-6">
       <img src="static/images/Figure 5.png"
@@ -485,6 +592,16 @@ key strengths: flexibility and generalizability to complex realworld environment
            style="max-width:100%; height:auto;">
       <p class="subtitle mt-3">
         <strong>Figure 5.</strong> SCLPlan leverages its LLM components for intuitive and intelligent failure recovery, including asking a human expert for assistance.
+      </p>
+    </div>
+
+    <!-- Placeholder Text -->
+    <div class="content mb-6">
+      <h2 class="title is-4">System Architecture</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant
+        morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed
+        vitae magna eget odio volutpat consequat ut quis augue.
       </p>
     </div>
 
