@@ -370,10 +370,10 @@ key strengths: flexibility and generalizability to complex realworld environment
       </video>
       <!-- TODO: Replace with your video description -->
       <h2 class="subtitle has-text-centered">
-        We present the Symbolically Constrained Language Planner (SCLPlan); a novel, hybrid approach to embodied planning 
-        that combines symbolic and LLM-powered planners. We demonstrate
-        that our method greatly reduces hallucinations while maintaining LLM creativity and reasoning capacity, facilitating reliable performance
-        in complex, real-world environments.
+        We present the Symbolically Constrained Language Planner (SCLPlan), a novel hybrid approach to embodied 
+        planning that combines symbolic planners with LLM-based planners. We demonstrate that our method greatly 
+        reduces hallucinations while preserving the creativity and reasoning capabilities of LLMs, enabling 
+        reliable performance in complex, real-world environments.
         
         <!-- . We augment a traditional LLM planner with
         symbolic components and show that the constraints imposed by the symbolic components greatly reduce LLM
@@ -434,58 +434,74 @@ key strengths: flexibility and generalizability to complex realworld environment
 <!-- End paper abstract -->
 
 
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/Figure 1.png" alt="" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          SCLPlan Overview -- In the design phase, an engineer can specify the planning
-constraints of their system (i.e. the preconditions and effects of each action) through a PDDL environment domain. This engineer can then create an LLM
-Planning Prompt that provides natural language descriptions of each of the available actions. During the planning phase, SCLPlan will first
-use an LLM to produce a PDDL goal state that can be used by its Symbolic Planner to generate a planning solution. Next, SCLPlan will sequentially plan
-to achieve the task, leveraging both LLM and Symbolic Planner components where necessary.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/Figure 2.png" alt="" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          We evaluate SCLPlan on a variety of environments that differ in complexity.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/Figure 3.png" alt="" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         SCLPlan significantly improves planning performance across several LLMs of various sizes.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/Figure 5.png" alt="" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        SCLPlan can leverage its LLM components for intuitive and intelligent failure recovery, which includes asking a human expert for assistance.
-      </h2>
+<!-- Figures -->
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Figure 1 -->
+    <div class="content has-text-centered mb-6">
+      <img src="static/images/Figure 1.png"
+           alt="SCLPlan Overview"
+           loading="lazy"
+           style="max-width:100%; height:auto;">
+      <p class="subtitle mt-3">
+        <strong>Figure 1.</strong> SCLPlan Overview — In the design phase, an engineer specifies
+        planning constraints (i.e., the preconditions and effects of each action) through a
+        PDDL environment domain. The engineer then creates an LLM planning prompt that
+        provides natural language descriptions of the available actions. During execution,
+        SCLPlan first uses an LLM to produce a PDDL goal state that is passed to a symbolic
+        planner, then sequentially plans toward the goal while leveraging both symbolic and
+        LLM planning components where appropriate.
+      </p>
     </div>
-    <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/Figure 6.png" alt="" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        SCLPlan design architecture. A detailed explanation can be found in the paper.
-      </h2>
+
+    <!-- Figure 2 -->
+    <div class="content has-text-centered mb-6">
+      <img src="static/images/Figure 2.png"
+           alt="Evaluation Environments"
+           loading="lazy"
+           style="max-width:100%; height:auto;">
+      <p class="subtitle mt-3">
+        <strong>Figure 2.</strong> We evaluate SCLPlan on a variety of environments that differ in complexity.
+      </p>
     </div>
+
+    <!-- Figure 3 -->
+    <div class="content has-text-centered mb-6">
+      <img src="static/images/Figure 3.png"
+           alt="Planning Performance"
+           loading="lazy"
+           style="max-width:100%; height:auto;">
+      <p class="subtitle mt-3">
+        <strong>Figure 3.</strong> SCLPlan significantly improves planning performance across several LLMs of various sizes.
+      </p>
+    </div>
+
+    <!-- Figure 5 -->
+    <div class="content has-text-centered mb-6">
+      <img src="static/images/Figure 5.png"
+           alt="Failure Recovery"
+           loading="lazy"
+           style="max-width:100%; height:auto;">
+      <p class="subtitle mt-3">
+        <strong>Figure 5.</strong> SCLPlan leverages its LLM components for intuitive and intelligent failure recovery, including asking a human expert for assistance.
+      </p>
+    </div>
+
+    <!-- Figure 6 -->
+    <div class="content has-text-centered mb-6">
+      <img src="static/images/Figure 6.png"
+           alt="Architecture"
+           loading="lazy"
+           style="max-width:100%; height:auto;">
+      <p class="subtitle mt-3">
+        <strong>Figure 6.</strong> SCLPlan design architecture. A detailed explanation can be found in the paper.
+      </p>
+    </div>
+
   </div>
-</div>
-</div>
 </section>
-<!-- End image carousel -->
-
-
+<!-- End Figures -->
 
 
 <!-- Youtube video -->
