@@ -370,10 +370,23 @@ key strengths: flexibility and generalizability to complex realworld environment
       </video>
       <!-- TODO: Replace with your video description -->
       <h2 class="subtitle has-text-centered">
-        LLM-powered agentic planners extend the frontier of robotic planning, overcoming previously intractible
+        We present the Symbolically Constrained Language Planner (SCLPlan); a novel, hybrid approach to embodied planning 
+        that combines symbolic and LLM-powered planners. We demonstrate
+        that our method greatly reduces hallucinations while maintaining LLM creativity and reasoning capacity, facilitating reliable performance
+        in complex, real-world environments.
+        
+        <!-- . We augment a traditional LLM planner with
+        symbolic components and show that the constraints imposed by the symbolic components greatly reduce LLM
+        hallucinations and do  -->
+
+        <!-- To overcome hallucinations, we combine symbolic and LLM components to develop a hybrid approach to symbolic planning. We demonstrate that 
+        our method significantly improves planning performance in both simulated and real world environments, 
+        and greatly reduces catastrophic hallucinations
+        during the planning process. -->
+        <!-- LLM-powered agentic planners extend the frontier of robotic planning, overcoming previously intractible
         open-world environments and facilitating natural language communication between man and machine. However,
         hallucinations remain a major problem. In this work, we develop a hybrid planning approach leveraging both
-        symbolic and agentic planning components, and demonstrate effectiveness of this synergy.
+        symbolic and agentic planning components, and demonstrate effectiveness of this synergy. -->
       </h2>
     </div>
   </div>
@@ -428,7 +441,11 @@ key strengths: flexibility and generalizability to complex realworld environment
       <div id="results-carousel" class="carousel results-carousel">
        <div class="item">
         <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
+        <img src="static/images/Figure 1.jpg" alt="SCLPlan Overview -- In the design phase, an engineer can specify the planning
+constraints of their system (i.e. the preconditions and effects of each action) through a PDDL environment domain. This engineer can then create an LLM
+Planning Prompt that provides natural language descriptions of each of the available actions. During the planning phase, SCLPlan will first
+use an LLM to produce a PDDL goal state that can be used by its Symbolic Planner to generate a planning solution. Next, SCLPlan will sequentially plan
+to achieve the task, leveraging both LLM and Symbolic Planner components where necessary." loading="lazy"/>
         <!-- TODO: Replace with description of this result -->
         <h2 class="subtitle has-text-centered">
           First image description.
