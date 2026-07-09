@@ -440,7 +440,7 @@ key strengths: flexibility and generalizability to complex realworld environment
 
     <!-- Placeholder Text -->
     <div class="content mb-6">
-      <h2 class="title is-4">Planning Environments</h2>
+      <h2 class="title is-4">Designing a Planner with SCLPlan</h2>
       <p>
         In the design phase, an engineer specifies
         planning constraints (i.e., the preconditions and effects of each action) through a
@@ -448,7 +448,7 @@ key strengths: flexibility and generalizability to complex realworld environment
         provides natural language descriptions of the available actions. During execution,
         SCLPlan first uses an LLM to produce a PDDL goal state that is passed to a symbolic
         planner, then sequentially plans toward the goal while leveraging both symbolic and
-        LLM planning components where appropriate. A description of the design approach can
+        LLM planning components where appropriate. A visual description of the design approach can
         be seen in Figure 1 below.
       </p>
     </div>
@@ -466,7 +466,7 @@ key strengths: flexibility and generalizability to complex realworld environment
 
     <!-- Placeholder Text -->
     <div class="content mb-6">
-      <h2 class="title is-4">Planning Environments</h2>
+      <h2 class="title is-4">Evaluation Environments</h2>
       <p>
         We evaluate SCLPlan on a variety of environments that differ in complexity. These environments
         range from simulation environments like ALFWorld and AI2Thor to multiple different real world environments
@@ -482,16 +482,16 @@ key strengths: flexibility and generalizability to complex realworld environment
            loading="lazy"
            style="max-width:100%; height:auto;">
       <p class="subtitle mt-3">
-        <strong>Figure 2.</strong> Evaluation Environments
+        <strong>Figure 2.</strong> Visualization of evaluation environments.
       </p>
     </div>
 
     <!-- Placeholder Text -->
     <div class="content mb-6">
-      <h2 class="title is-4">Experimental Results In Simulation</h2>
+      <h2 class="title is-4">Simulation Ablation Studies Demsonstrate Strong Performance of SCLPlan</h2>
       <p>
-        In Figure 3, we provide data for three different approaches:
-        1. ReAct 21 - a pure LLM approach, 2. ReAct
+        Figure 3 provides ablation study results for three different approaches:
+        1. ReAct - a pure LLM approach, 2. ReAct
         + P V - a
         pure LLM whose next action predictions are first verified or
         corrected with our formal method Precondition Verification,
@@ -513,7 +513,7 @@ key strengths: flexibility and generalizability to complex realworld environment
         language backbone, which experienced a slight degradation
         of performance on the Token Count and Environment Steps
         metrics when using ReAct
-        + P V alone.
+        + PV alone.
       </p>
     </div>
 
@@ -530,32 +530,12 @@ key strengths: flexibility and generalizability to complex realworld environment
 
         <!-- Placeholder Text -->
     <div class="content mb-6">
-      <h2 class="title is-4">Experimental Results In Simulation</h2>
+      <h2 class="title is-4">SCLPlan Improves Planning Consistency</h2>
       <p>
-        In Figure 3, we provide data for three different approaches:
-        1. ReAct 21 - a pure LLM approach, 2. ReAct
-        + P V - a
-        pure LLM whose next action predictions are first verified or
-        corrected with our formal method Precondition Verification,
-        and 3. SCLPlan - our full AI planner, which includes
-        Precondition Verification as well as a Global Symbolic Planner
-        (GSP) that constantly searches for a global solution to the
-        planning task at each next action prediction. We evaluate each
-        approach using Task Success percentage, total Token Count,
-        and number of Environment Steps required to complete each
-        task as our experimental metrics.
-        Figure 3 clearly demonstrates the benefits of each formal
-        method augmentation on the ALFWorld validation task set. 
-        Across every LLM, regardless of size and competency, the
-        introduction of Precondition Verification and then Global Formal 
-        Planning significantly improved the overall Task Success
-        rate of the pipeline. This pattern generally extends to both
-        Token Count and Environment Steps, with a notable exception
-        for the formulation of the planner using Llama 70B as its
-        language backbone, which experienced a slight degradation
-        of performance on the Token Count and Environment Steps
-        metrics when using ReAct
-        + P V alone.
+        A key drawback of LLM-based planning approaches is a lack of consistency
+        in their performance across the same task when performed mutliple times. Table 1 provides ablation study results
+        in our simulated environments that show that SCLPlan greatly improves the consistency of planning across
+        multiple different metrics.
       </p>
     </div>
 
@@ -577,10 +557,9 @@ key strengths: flexibility and generalizability to complex realworld environment
     <div class="content mb-6">
       <h2 class="title is-4">Robustness and Recovery</h2>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat
-        ullamcorper magna, sed porttitor justo suscipit eget. Integer eget tincidunt
-        ipsum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-        cubilia curae.
+        Symbolic planning methods are unable to implement intelligent recovery mechanisms
+        on the fly. The LLM components of SCLPlan allow the planner to reason through failures,
+        plan recovery maneuvers, and reach out to human experts for help, if needed.
       </p>
     </div>
 
@@ -597,11 +576,16 @@ key strengths: flexibility and generalizability to complex realworld environment
 
     <!-- Placeholder Text -->
     <div class="content mb-6">
-      <h2 class="title is-4">System Architecture</h2>
+      <h2 class="title is-4">Full Planner Architecture</h2>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant
-        morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed
-        vitae magna eget odio volutpat consequat ut quis augue.
+        Figure 6 depicts a complete architectural diagram of SCLPlan, showing the 4 key phases of the framework. Phase 1: The LLM component is provided a
+        task description and a description of available PDDL predicates for the system and produces a PDDL goal state. The perception pipeline creates a 3D scene
+        graph which is combined with the PDDL goal state to generate a PDDL problem file. Phase 2: The formal planning component takes the PDDL problem
+        file as input and attempts to generate a valid plan. If the plan executes successfully, the task is complete and the planner predicts task success. If failure
+        occurs during planning or execution, SCLPlan moves to the next phase. Phase 3: The LLM planner takes over. Given the prior history, 3D scene graph, and
+        action information the LLM predicts the next action and moves to the next phase. Phase 4: The symbolic planning component is used to determine if all
+        preconditions are satisfied for the LLM component’s prediction. If preconditions are not satisfied, the symbolic planner will attempt to generate and execute
+        a plan to satisfy the preconditions. This is effectively a recursive call to Phase 2 of the system. Finally, the system loops back to Phase 1.
       </p>
     </div>
 
@@ -612,7 +596,7 @@ key strengths: flexibility and generalizability to complex realworld environment
            loading="lazy"
            style="max-width:100%; height:auto;">
       <p class="subtitle mt-3">
-        <strong>Figure 6.</strong> SCLPlan design architecture. A detailed explanation can be found in the paper.
+        <strong>Figure 6.</strong> SCLPlan design architecture.
       </p>
     </div>
 
