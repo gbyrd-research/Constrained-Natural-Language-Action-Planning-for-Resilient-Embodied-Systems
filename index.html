@@ -488,7 +488,7 @@ key strengths: flexibility and generalizability to complex realworld environment
 
     <!-- Placeholder Text -->
     <div class="content mb-6">
-      <h2 class="title is-4">Simulation Ablation Studies Demsonstrate Strong Performance of SCLPlan</h2>
+      <h2 class="title is-4">Ablation Studies Demsonstrate Strong Performance of SCLPlan</h2>
       <p>
         Figure 3 provides ablation study results for three different approaches:
         1. ReAct - a pure LLM approach, 2. ReAct
@@ -524,7 +524,17 @@ key strengths: flexibility and generalizability to complex realworld environment
            loading="lazy"
            style="max-width:100%; height:auto;">
       <p class="subtitle mt-3">
-        <strong>Figure 3.</strong> SCLPlan significantly improves planning performance across several LLMs of various sizes.
+        <strong>Figure 3.</strong> Simulation ablation study. SCLPlan significantly improves planning performance across several LLMs of various sizes.
+      </p>
+    </div>
+
+    <div class="content has-text-centered mb-6">
+      <img src="static/images/real_world_exp.png"
+           alt="Planning Performance"
+           loading="lazy"
+           style="max-width:100%; height:auto;">
+      <p class="subtitle mt-3">
+        <strong>Figure 4.</strong> Real world SCLPlan ablation study SCLPlan makes real world planning significantly more reliable.
       </p>
     </div>
 
@@ -570,7 +580,33 @@ key strengths: flexibility and generalizability to complex realworld environment
            loading="lazy"
            style="max-width:50%; height:auto;">
       <p class="subtitle mt-3">
-        <strong>Figure 4.</strong> SCLPlan leverages its LLM components for intuitive and intelligent failure recovery, including asking a human expert for assistance.
+        <strong>Figure 5.</strong> SCLPlan leverages its LLM components for intuitive and intelligent failure recovery, including asking a human expert for assistance.
+      </p>
+    </div>
+
+    <!-- Placeholder Text -->
+    <div class="content mb-6">
+      <h2 class="title is-4">LLM Generated Symbolic Planning Domain</h2>
+      <p>
+        While the spirit of this work is to empower system designers and engineers through providing a principled approach
+        to constraint specification for intelligent embodied planners, we recognize that explicitely defining system constraints
+        could be time consuming for certain practitioners. Thus, we evaluate the LLM components' ability to generate its
+        own system constraints in the form of a PDDL domain file. We provided a natural language description of the real-world
+        robot's system constraints and then had an LLM generate a PDDL domain file. We repeated this experiment 5 times and
+        recorded the number of correct, incorrect, new, and missing system constraints when compared to the ground truth
+        PDDL file created by a human expert. The below results demonstrate that LLMs possess the ability to accurately
+        generate symbolic system constraints from a natural language prompt.
+      </p>
+    </div>
+
+    <!-- Figure 5 -->
+    <div class="content has-text-centered mb-6">
+      <img src="static/images/llm_generated_pddl.png"
+           alt="Failure Recovery"
+           loading="lazy"
+           style="max-width:50%; height:auto;">
+      <p class="subtitle mt-3">
+        <strong>Figure 6.</strong>Comparison results between 5 LLM generated symbolic planning domain files and the planning domain file created by human expert.
       </p>
     </div>
 
@@ -578,7 +614,7 @@ key strengths: flexibility and generalizability to complex realworld environment
     <div class="content mb-6">
       <h2 class="title is-4">Full Planner Architecture</h2>
       <p>
-        Figure 5 depicts a complete architectural diagram of SCLPlan, showing the 4 key phases of the framework. Phase 1: The LLM component is provided a
+        Figure 6 depicts a complete architectural diagram of SCLPlan, showing the 4 key phases of the framework. Phase 1: The LLM component is provided a
         task description and a description of available PDDL predicates for the system and produces a PDDL goal state. The perception pipeline creates a 3D scene
         graph which is combined with the PDDL goal state to generate a PDDL problem file. Phase 2: The formal planning component takes the PDDL problem
         file as input and attempts to generate a valid plan. If the plan executes successfully, the task is complete and the planner predicts task success. If failure
@@ -596,7 +632,7 @@ key strengths: flexibility and generalizability to complex realworld environment
            loading="lazy"
            style="max-width:100%; height:auto;">
       <p class="subtitle mt-3">
-        <strong>Figure 5.</strong> SCLPlan design architecture.
+        <strong>Figure 7.</strong> SCLPlan design architecture.
       </p>
     </div>
 
