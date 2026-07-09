@@ -370,7 +370,10 @@ key strengths: flexibility and generalizability to complex realworld environment
       </video>
       <!-- TODO: Replace with your video description -->
       <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
+        LLM-powered agentic planners extend the frontier of robotic planning, overcoming previously intractible
+        open-world environments and facilitating natural language communication between man and machine. However,
+        hallucinations remain a major problem. In this work, we develop a hybrid planning approach leveraging both
+        symbolic and agentic planning components, and demonstrate effectiveness of this synergy.
       </h2>
     </div>
   </div>
@@ -386,7 +389,29 @@ key strengths: flexibility and generalizability to complex realworld environment
         <div class="content has-text-justified">
           <!-- TODO: Replace with your paper abstract -->
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            Replicating human-level intelligence in embodied
+            task execution remains challenging due to the unconstrained
+            nature of real-world environments. Recent use of large language
+            models (LLMs) for task planning seeks to address the previously
+            intractable state/action space of complex planning tasks, but
+            hallucinations limit their viability. Additionally, the prompt
+            engineering required for adequate system performance lacks
+            transparency and repeatability. In contrast, symbolic planning
+            methods offer strong reliability and repeatability guarantees,
+            but struggle to scale to the complexity of real-world tasks.
+            We introduce a new planning method that augments LLM
+            planners with symbolic planning oversight to improve reliability and repeatability, and provide a transparent approach
+            to defining hard constraints with more clarity than traditional
+            prompt engineering. We demonstrate our approach in simulated
+            environments, outperforming current state-of-the-art methods.
+            Deployment of our method to a real-world quadruped robot
+            resulted in 75% task success compared to 50% and 14.3% for
+            pure LLM and symbolic planners across several embodied tasks,
+            many of which requiring complex reasoning and interaction
+            with humans in realistic scenarios. Our approach presents an
+            effective strategy to enhance the reliability, repeatability and
+            transparency of LLM-based robot planners while retaining their
+            key strengths: flexibility and generalizability to complex realworld environments.
           </p>
         </div>
       </div>
